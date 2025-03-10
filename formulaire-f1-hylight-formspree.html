@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire F1 HyLight 2025</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .form-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .form-header {
+      background-color: #e10600;
+      color: white;
+      padding: 20px;
+      border-radius: 8px 8px 0 0;
+      margin: -20px -20px 20px;
+    }
+    .form-header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .form-group:last-child {
+      border-bottom: none;
+    }
+    .question {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .points {
+      color: #e10600;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    input[type="text"], 
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    .radio-option {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .submit-btn {
+      background-color: #e10600;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      margin: 20px auto 0;
+    }
+    .submit-btn:hover {
+      background-color: #c00500;
+    }
+    .true-false-grid {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+    .true-false-question {
+      font-weight: normal;
+      margin: 10px 0;
+    }
+    .true-false-header {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-header">
+      <h1>F1 HyLight 2025 - Pronostics</h1>
+    </div>
+    
+    <form id="f1-form" action="https://formspree.io/f/mwplkola" method="POST">
+      <div class="form-group">
+        <div class="question">Nom du participant</div>
+        <input type="text" name="nom" required>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Qui finira champion du monde ? <span class="points">(5 Points)</span></div>
+        <select name="champion" required>
+          <option value="">Sélectionner un pilote</option>
+          <option value="max_verstappen">Max Verstappen</option>
+          <option value="lando_norris">Lando Norris</option>
+          <option value="charles_leclerc">Charles Leclerc</option>
+          <option value="lewis_hamilton">Lewis Hamilton</option>
+          <option value="oscar_piastri">Oscar Piastri</option>
+          <option value="george_russell">George Russell</option>
+          <option value="carlos_sainz">Carlos Sainz</option>
+          <option value="sergio_perez">Sergio Perez</option>
+          <option value="fernando_alonso">Fernando Alonso</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Classez ces pilotes dans l'ordre <span class="points">(3 Points)</span></div>
+        <div class="question">1. Carlos Sainz</div>
+        <select name="classement_sainz" required>
+          <option value="">Position</option>
+          <option value="1">1er</option>
+          <option value="2">2ème</option>
+          <option value="3">3ème</option>
+        </select>
+        
+        <div class="question">2. Pierre Gasly</div>
+        <select name="classement_gasly" required>
+          <option value="">Position</option>
+          <option value="1">1er</option>
+          <option value="2">2ème</option>
+          <option value="3">3ème</option>
+        </select>
+        
+        <div class="question">3. Lance Stroll</div>
+        <select name="classement_stroll" required>
+          <option value="">Position</option>
+          <option value="1">1er</option>
+          <option value="2">2ème</option>
+          <option value="3">3ème</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Combien de points remportera Isack Hadjar ? <span class="points">(Le plus proche remporte 3 points)</span></div>
+        <input type="number" name="points_hadjar" min="0" max="500" required>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Qui finira devant entre Piastri et Norris ? <span class="points">(3 points)</span></div>
+        <div class="radio-option">
+          <input type="radio" id="piastri" name="piastri_norris" value="piastri" required>
+          <label for="piastri">Oscar Piastri</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="norris" name="piastri_norris" value="norris">
+          <label for="norris">Lando Norris</label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Nombre de victoires de Verstappen ? <span class="points">(5 Points exact, 3 points à 2 près, 1 point à 3 près)</span></div>
+        <input type="number" name="victoires_verstappen" min="0" max="24" required>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Qui remportera le plus de points entre Liam Lawson et Kimi Antonelli ? <span class="points">(2 Points)</span></div>
+        <div class="radio-option">
+          <input type="radio" id="lawson" name="lawson_antonelli" value="lawson" required>
+          <label for="lawson">Liam Lawson</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="antonelli" name="lawson_antonelli" value="antonelli">
+          <label for="antonelli">Kimi Antonelli</label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Écurie avec le plus de DNF ? <span class="points">(2 Points)</span></div>
+        <select name="ecurie_dnf" required>
+          <option value="">Sélectionner une écurie</option>
+          <option value="red_bull">Red Bull</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="ferrari">Ferrari</option>
+          <option value="mclaren">McLaren</option>
+          <option value="aston_martin">Aston Martin</option>
+          <option value="alpine">Alpine</option>
+          <option value="rb">RB</option>
+          <option value="sauber">Stake F1/Sauber</option>
+          <option value="williams">Williams</option>
+          <option value="haas">Haas</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Pilote licencié pendant la saison ? <span class="points">(2 Points)</span></div>
+        <select name="pilote_licencie" required>
+          <option value="">Sélectionner un pilote</option>
+          <option value="aucun">Aucun</option>
+          <option value="max_verstappen">Max Verstappen</option>
+          <option value="sergio_perez">Sergio Perez</option>
+          <option value="lewis_hamilton">Lewis Hamilton</option>
+          <option value="george_russell">George Russell</option>
+          <option value="charles_leclerc">Charles Leclerc</option>
+          <option value="carlos_sainz">Carlos Sainz</option>
+          <option value="lando_norris">Lando Norris</option>
+          <option value="oscar_piastri">Oscar Piastri</option>
+          <option value="fernando_alonso">Fernando Alonso</option>
+          <option value="lance_stroll">Lance Stroll</option>
+          <option value="pierre_gasly">Pierre Gasly</option>
+          <option value="esteban_ocon">Esteban Ocon</option>
+          <option value="alex_albon">Alex Albon</option>
+          <option value="logan_sargeant">Logan Sargeant</option>
+          <option value="yuki_tsunoda">Yuki Tsunoda</option>
+          <option value="liam_lawson">Liam Lawson</option>
+          <option value="nico_hulkenberg">Nico Hulkenberg</option>
+          <option value="kevin_magnussen">Kevin Magnussen</option>
+          <option value="valtteri_bottas">Valtteri Bottas</option>
+          <option value="zhou_guanyu">Zhou Guanyu</option>
+          <option value="isack_hadjar">Isack Hadjar</option>
+          <option value="kimi_antonelli">Kimi Antonelli</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Crash entre coéquipiers dans la saison ? <span class="points">(Obligé de citer une écurie, 2 points)</span></div>
+        <select name="crash_coequipiers" required>
+          <option value="">Sélectionner une écurie</option>
+          <option value="red_bull">Red Bull</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="ferrari">Ferrari</option>
+          <option value="mclaren">McLaren</option>
+          <option value="aston_martin">Aston Martin</option>
+          <option value="alpine">Alpine</option>
+          <option value="rb">RB</option>
+          <option value="sauber">Stake F1/Sauber</option>
+          <option value="williams">Williams</option>
+          <option value="haas">Haas</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Pilote sur le podium ? <span class="points">(Tu gagnes le nombre de points du classement du pilote s'il le fait, plus tu mets un mec nul plus tu peux faire des points mais moins c'est probable)</span></div>
+        <select name="pilote_podium" required>
+          <option value="">Sélectionner un pilote</option>
+          <option value="max_verstappen">Max Verstappen</option>
+          <option value="sergio_perez">Sergio Perez</option>
+          <option value="lewis_hamilton">Lewis Hamilton</option>
+          <option value="george_russell">George Russell</option>
+          <option value="charles_leclerc">Charles Leclerc</option>
+          <option value="carlos_sainz">Carlos Sainz</option>
+          <option value="lando_norris">Lando Norris</option>
+          <option value="oscar_piastri">Oscar Piastri</option>
+          <option value="fernando_alonso">Fernando Alonso</option>
+          <option value="lance_stroll">Lance Stroll</option>
+          <option value="pierre_gasly">Pierre Gasly</option>
+          <option value="esteban_ocon">Esteban Ocon</option>
+          <option value="alex_albon">Alex Albon</option>
+          <option value="logan_sargeant">Logan Sargeant</option>
+          <option value="yuki_tsunoda">Yuki Tsunoda</option>
+          <option value="liam_lawson">Liam Lawson</option>
+          <option value="nico_hulkenberg">Nico Hulkenberg</option>
+          <option value="kevin_magnussen">Kevin Magnussen</option>
+          <option value="valtteri_bottas">Valtteri Bottas</option>
+          <option value="zhou_guanyu">Zhou Guanyu</option>
+          <option value="isack_hadjar">Isack Hadjar</option>
+          <option value="kimi_antonelli">Kimi Antonelli</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Devine un transfert à l'issue de la saison ? <span class="points">(3 points)</span></div>
+        <input type="text" name="transfert" required placeholder="Ex: Carlos Sainz chez Williams">
+      </div>
+      
+      <div class="form-group">
+        <div class="question">Vrai ou faux <span class="points">(1 point par question)</span></div>
+        
+        <div class="true-false-grid">
+          <div class="true-false-header"></div>
+          <div class="true-false-header">Vrai</div>
+          <div class="true-false-header">Faux</div>
+          
+          <div class="true-false-question">Alonso mettra 3X les points de Stroll ?</div>
+          <div><input type="radio" name="alonso_stroll" value="vrai" required></div>
+          <div><input type="radio" name="alonso_stroll" value="faux"></div>
+          
+          <div class="true-false-question">Piastri signe sa première pole ?</div>
+          <div><input type="radio" name="piastri_pole" value="vrai" required></div>
+          <div><input type="radio" name="piastri_pole" value="faux"></div>
+          
+          <div class="true-false-question">Hamilton finira-t-il dans le TOP 3 ?</div>
+          <div><input type="radio" name="hamilton_top3" value="vrai" required></div>
+          <div><input type="radio" name="hamilton_top3" value="faux"></div>
+          
+          <div class="true-false-question">Hamilton gagne à Silverstone ?</div>
+          <div><input type="radio" name="hamilton_silverstone" value="vrai" required></div>
+          <div><input type="radio" name="hamilton_silverstone" value="faux"></div>
+          
+          <div class="true-false-question">Leclerc gagne à Monaco ?</div>
+          <div><input type="radio" name="leclerc_monaco" value="vrai" required></div>
+          <div><input type="radio" name="leclerc_monaco" value="faux"></div>
+          
+          <div class="true-false-question">Un pilote finit à 0 point ?</div>
+          <div><input type="radio" name="pilote_zero" value="vrai" required></div>
+          <div><input type="radio" name="pilote_zero" value="faux"></div>
+          
+          <div class="true-false-question">Le champion du monde l'est avec plus de 400 points ?</div>
+          <div><input type="radio" name="champion_400" value="vrai" required></div>
+          <div><input type="radio" name="champion_400" value="faux"></div>
+          
+          <div class="true-false-question">Il pleut pour le grand prix de Belgique ?</div>
+          <div><input type="radio" name="pluie_belgique" value="vrai" required></div>
+          <div><input type="radio" name="pluie_belgique" value="faux"></div>
+          
+          <div class="true-false-question">Hadjar fait un top 5 ?</div>
+          <div><input type="radio" name="hadjar_top5" value="vrai" required></div>
+          <div><input type="radio" name="hadjar_top5" value="faux"></div>
+        </div>
+      </div>
+      
+      <button type="submit" class="submit-btn">Envoyer mes pronostics</button>
+    </form>
+  </div>
+</body>
+</html>
